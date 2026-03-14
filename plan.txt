@@ -1,0 +1,100 @@
+N-BODY PROBLEM
+
+- How do n objects move if each one graviationally attracts the others?
+Examples:
+
+Sun + Earth → 2-body problem
+
+Sun + Earth + Moon → 3-body problem
+
+solar system → N-body
+
+The 2-body problem has an exact solution (elliptical orbits).
+
+But for N ≥ 3, there is no general analytic solution.
+Instead we approximate the motion with numerical methods.
+
+
+README sections:
+
+1. Physics Background
+2. Numerical Method
+3. Simulation Examples
+4. Results
+5. How to Run
+maybe include GIF animations of orbits
+
+physics bg:
+- Gravitational Interaction -- Newton's Law of Universal Gravitation
+- Newton's second law for motion
+- Numerical Intgegration
+	- Simplest: Euler Method
+	- Better: Verlet integration, Leapfrog integration, Runge-Kutta
+- Conservation Laws
+	- energy
+	- momentum
+- if have N bodies, must compute force between every pair
+
+
+Think of the project as building a small virtual solar system where masses move under gravity. 
+The simulation has a few clear stages: setup → physics calculation → time evolution → visualization → analysis. 
+
+1) Define system 
+- each body needs
+	- mass
+	- position
+	- velocity (sideway velocity: see newton's laws of universal gravitation
+2) Represent each body
+Body
+ ├─ mass
+ ├─ position
+ ├─ velocity
+ └─ acceleration
+all bodies are stored in a list of objects
+
+3) Main Simulation Loop
+runs in small time steps
+while simulation_running:
+    calculate forces
+    update velocities
+    update positions
+    draw new frame
+
+4) Compute gravitational forces
+- newton's second law
+
+5) Update Motion
+- once know acceleration - can update velocity and position -- Numerical integration comes in
+
+6) Visualisation
+- show moving ploanets, orbit trails
+
+7) Interesting scenarios maybe?
+- stable orbit
+- escape trajectory
+- planet collision
+- choatic system -- three body problem
+
+8) data to plot
+- total E vs time (should be constant)
+- distance bs time
+- trajectory plots, phase space etc
+
+When someone runs your program:
+
+a window opens
+
+planets begin moving
+
+trails appear
+
+orbits form
+
+Example simulation:
+
+Sun at center
+Earth orbiting
+Mars orbiting slower
+asteroids moving randomly
+
+After a few seconds it looks like a mini solar system.
